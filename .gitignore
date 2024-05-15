@@ -1,0 +1,6 @@
+.env
+node_modules
+.npmrc
+dist
+.prettiercache
+.eslintcache

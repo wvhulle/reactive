@@ -1,0 +1,54 @@
+{
+	"types": "./dist/index.d.ts",
+	"author": "Willem Vanhulle <willemvanhulle@gmail.com>",
+	"dependencies": {
+		"lodash-es": "^4.17.21"
+	},
+	"description": "This library in Typescript has definitions and operators for reactive data streams. You can use this library to define streams, writable and readable and combine them or bind them to each other.",
+	"devDependencies": {
+		"@wvhulle/eslint-config-typescript": "^0.0.2",
+		"@wvhulle/prettier-config-node": "^0.0.1",
+		"@wvhulle/tsconfig": "^0.0.1",
+		"@types/lodash-es": "^4.17.10",
+		"eslint": "^8.52.0",
+		"fast-check": "^3.13.2",
+		"prettier": "^3.0.3",
+		"publint": "^0.2.5",
+		"tsc-alias": "^1.8.8",
+		"typescript": "^5.2.2",
+		"vite-tsconfig-paths": "^4.2.1",
+		"vitest": "^0.34.6"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"files": ["./dist", "./lib"],
+	"keywords": [
+		"data-structure",
+		"reactive",
+		"reactivity",
+		"stream",
+		"RxJS",
+		"Svelte",
+		"observable"
+	],
+	"license": "GPL-3.0-only",
+	"name": "@wvhulle/reactive",
+	"repository": "https://github.com/wvhulle/reactive",
+	"scripts": {
+		"build": "tsc && tsc-alias",
+		"coverage": "vitest run --coverage --passWithNoTests",
+		"eslint": "eslint -f visualstudio --quiet --cache --ext .ts,.js,.svelte  --ignore-path .gitignore  .",
+		"eslint:fix": "eslint -f visualstudio --cache --ext .ts,.js,.svelte  --ignore-path .gitignore  --fix --fix-type directive,problem,suggestion,layout  .",
+		"format": "npm run prettier; npm run eslint",
+		"lint": "npm run eslint",
+		"prepublishOnly": "npm run lint && npm run test && npm run build && publint",
+		"prettier": "prettier --config .prettierrc.cjs  --cache --cache-location .prettiercache --ignore-path .gitignore --write  .  ",
+		"test": "vitest run --passWithNoTests"
+	},
+	"type": "module",
+	"version": "0.0.1"
+}
