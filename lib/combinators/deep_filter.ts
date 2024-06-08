@@ -35,7 +35,6 @@ export class Deep_Filter<Container = unknown, Value = unknown> extends Readable_
         this.source = source
         this.get_readable = get_readable
         this.mask = visibility
-        // this.interior = this.source.get().filter((_s, i) => this.visibility.get(i));
         this.source_unsubscriber = this.source.subscribe(
             original_list => {
                 this.element_unsubscribers.forEach(u => u())
@@ -47,7 +46,6 @@ export class Deep_Filter<Container = unknown, Value = unknown> extends Readable_
 
                         return element_reactive_value.subscribe(
                             (changed_element_value: Value) => {
-                                // const current_list = this.get();
                                 const was_visible = this.mask.get(original_index)
                                 const visible_now =
                                     this.condition?.(changed_element_value) ??
@@ -57,7 +55,6 @@ export class Deep_Filter<Container = unknown, Value = unknown> extends Readable_
                                     this.filter()
                                 }
                             }
-                            //() => this.cancel_subscriptions()
                         )
                     }
                 )
