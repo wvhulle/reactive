@@ -26,7 +26,6 @@ it('changing length', () => {
     const B = { value: new Writable_Stream({ visible: true }) }
 
     const list = new Readable_Stream<{ value: Writable_Stream<{ visible: boolean }> }[]>([A, B])
-    // debugger;
     const filter = new Deep_Filter(
         list,
         ({ value }) => value,
